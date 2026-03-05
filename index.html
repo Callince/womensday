@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Welcome to QR DADA</title>
+    <title>Happy Women's Day!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -34,17 +35,17 @@
             max-width: 400px;
             opacity: 0;
             transform: translateY(-20px);
-            animation: slideDown 1s ease-out 0.3s forwards;
+            animation: slideDown 1s ease-out 1s forwards;
         }
 
         .welcome-text {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            font-size: 6vw;
-            color: #1a1a2e;
-            font-weight: 600;
+            font-family: 'Dancing Script', cursive;
+            font-size: 10vw;
+            color: #7c4dff;
+            font-weight: 700;
             text-align: center;
             opacity: 0;
-            animation: fadeIn 1s ease-out 1s forwards;
+            animation: fadeIn 1s ease-out 0.3s forwards;
         }
 
         .click-btn {
@@ -87,7 +88,7 @@
 
         @media (min-width: 768px) {
             .welcome-text {
-                font-size: 32px;
+                font-size: 52px;
             }
             .click-btn {
                 font-size: 22px;
@@ -98,8 +99,8 @@
 </head>
 <body>
     <div class="welcome">
+        <p class="welcome-text">Happy Women's Day!</p>
         <img class="logo" src="qrdadalogo.png" alt="QR DADA Logo">
-        <p class="welcome-text">Welcome to QR DADA</p>
         <a class="click-btn" href="womensday.html">Click Here</a>
     </div>
 </body>
