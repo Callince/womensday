@@ -92,21 +92,17 @@
 
     <script>
         const audio = document.getElementById('bgMusic');
-        const img = document.querySelector('.container img');
 
-        function startMusic() {
-            audio.play().catch(() => {
-                const events = ['click', 'touchstart', 'scroll', 'keydown'];
-                function tryPlay() {
-                    audio.play().then(() => {
-                        events.forEach(e => document.removeEventListener(e, tryPlay));
-                    }).catch(() => {});
-                }
-                events.forEach(e => document.addEventListener(e, tryPlay, { once: true }));
-            });
-        }
-
-        img.addEventListener('animationend', startMusic);
+        // Play immediately on page load
+        audio.play().catch(() => {
+            const events = ['click', 'touchstart', 'scroll', 'keydown'];
+            function tryPlay() {
+                audio.play().then(() => {
+                    events.forEach(e => document.removeEventListener(e, tryPlay));
+                }).catch(() => {});
+            }
+            events.forEach(e => document.addEventListener(e, tryPlay, { once: true }));
+        });
     </script>
 </body>
 </html>
