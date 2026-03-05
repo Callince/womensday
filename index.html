@@ -93,16 +93,18 @@
     <script>
         const audio = document.getElementById('bgMusic');
 
-        // Play immediately on page load
-        audio.play().catch(() => {
-            const events = ['click', 'touchstart', 'scroll', 'keydown'];
-            function tryPlay() {
-                audio.play().then(() => {
-                    events.forEach(e => document.removeEventListener(e, tryPlay));
-                }).catch(() => {});
-            }
-            events.forEach(e => document.addEventListener(e, tryPlay, { once: true }));
-        });
+        // Play audio after 100ms
+        setTimeout(() => {
+            audio.play().catch(() => {
+                const events = ['click', 'touchstart', 'scroll', 'keydown'];
+                function tryPlay() {
+                    audio.play().then(() => {
+                        events.forEach(e => document.removeEventListener(e, tryPlay));
+                    }).catch(() => {});
+                }
+                events.forEach(e => document.addEventListener(e, tryPlay, { once: true }));
+            });
+        }, 100);
     </script>
 </body>
 </html>
