@@ -57,17 +57,22 @@
 
     <script>
         const audio = document.getElementById('bgMusic');
-        // Try to autoplay immediately
-        audio.play().catch(() => {
-            // If browser blocks autoplay, retry on any user interaction
-            const events = ['click', 'touchstart', 'scroll', 'keydown'];
-            function tryPlay() {
-                audio.play().then(() => {
-                    events.forEach(e => document.removeEventListener(e, tryPlay));
-                }).catch(() => {});
-            }
-            events.forEach(e => document.addEventListener(e, tryPlay, { once: true }));
-        });
+        const img = document.querySelector('.container img');
+
+        function startMusic() {
+            audio.play().catch(() => {
+                const events = ['click', 'touchstart', 'scroll', 'keydown'];
+                function tryPlay() {
+                    audio.play().then(() => {
+                        events.forEach(e => document.removeEventListener(e, tryPlay));
+                    }).catch(() => {});
+                }
+                events.forEach(e => document.addEventListener(e, tryPlay, { once: true }));
+            });
+        }
+
+        // Wait for fade-in animation to finish, then start music
+        img.addEventListener('animationend', startMusic);
     </script>
 </body>
 </html>
