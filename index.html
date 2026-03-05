@@ -46,6 +46,21 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s ease-out 0.3s forwards;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0 2vw;
+        }
+
+        .welcome-text span {
+            display: inline-block;
+            animation: danceLetter 2s ease-in-out infinite;
+        }
+
+        @keyframes danceLetter {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(3deg); }
+            75% { transform: translateY(4px) rotate(-2deg); }
         }
 
         .click-btn {
@@ -99,9 +114,19 @@
 </head>
 <body>
     <div class="welcome">
-        <p class="welcome-text">Happy Women's Day!</p>
+        <p class="welcome-text" id="dancingText"></p>
         <img class="logo" src="qrdadalogo.png" alt="QR DADA Logo">
         <a class="click-btn" href="womensday.html">Click Here</a>
     </div>
+    <script>
+        const text = "Welcome to QR DADA";
+        const container = document.getElementById('dancingText');
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.animationDelay = (i * 0.1) + 's';
+            container.appendChild(span);
+        });
+    </script>
 </body>
 </html>
